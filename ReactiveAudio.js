@@ -17,6 +17,10 @@ export function update(Value) {
 		Amount += CalculateAverage(g_Audio.left[i], g_Audio.right[i]);
 	}
 	var Volume = Amount;
-	Value += Amount / g_Reduce;
+	if (g_Reduce != 0) {
+		Value += Amount / g_Reduce;
+	} else {
+		Value += Amount;
+	}
 	return Value;
 }
